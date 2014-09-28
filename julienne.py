@@ -19,3 +19,6 @@ class Julienne:
         rows_sans_whitespace = [[unicode(field.string) for field in row if field != '\n'] for row in self.row_list]
         return [dict(zip(self.columns(), row)) for row in rows_sans_whitespace]
 
+    def select(self, **kwargs):
+        pass
+

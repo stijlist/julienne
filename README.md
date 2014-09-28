@@ -9,7 +9,7 @@ a python lib for slicing n' dicing html tables
 Julienne a table:
     
     # table can be a beautifulsoup tag or a block of text
-    julienned = Julienne.slice(table)
+    julienned = Julienne(table)
     
 validate a table: 
 
@@ -20,7 +20,7 @@ enumerate columns:
     
     julienned.columns() # => ['Player','Points', 'Rebounds', 'Assists']
 
-enumerate rows: 
+enumerate rows: TODO: return dicts instead of lists
     
     julienned.rows() # => ['Kevin Durant', 'LeBron James']
 
