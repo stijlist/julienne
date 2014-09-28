@@ -28,8 +28,6 @@ class Julienne:
 
     def to_csv(self):
         csv_str = ",".join(self.columns()) + "\n"
-        csv_str += "\n".join(map(lambda row: ",".join(row.viewvalues()), self.rows()))
+        csv_str += "\n".join([",".join(row.viewvalues()) for row in self.rows()])
         return csv_str
         
-
-
