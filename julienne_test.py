@@ -18,12 +18,14 @@ def simplest_html_table():
     </table>
     """
 
-def do_nothing():
-    pass
-
-@with_setup(simplest_html_table, do_nothing)
+@with_setup(simplest_html_table)
 def test_table_validation():
     assert Julienne(TABLE).validate()
 
+def test_column_enumeration():
+    assert Julienne(TABLE).columns() == ['Function']
+
+def test_row_enumeration():
+    assert Julienne(TABLE).rows() == [{ 'Function':'validate()' }]
 
 
