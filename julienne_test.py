@@ -32,3 +32,5 @@ def test_julienne_selection():
     assert Julienne(TABLE).select(columns=['Function']) == [{ 'Function':'validate()' }]
     assert Julienne(TABLE).select(columns=[]) == [{}]
 
+def test_to_csv():
+    assert Julienne(TABLE).to_csv() == "Function\nvalidate()"

@@ -1,4 +1,5 @@
 from BeautifulSoup import BeautifulSoup
+from collections import OrderedDict
 
 class Julienne:
     def __init__(self, table):
@@ -17,13 +18,18 @@ class Julienne:
 
     def rows(self):
         rows_sans_whitespace = [[unicode(field.string) for field in row if field != '\n'] for row in self.row_list]
-        return [dict(zip(self.columns(), row)) for row in rows_sans_whitespace]
+        return [OrderedDict(zip(self.columns(), row)) for row in rows_sans_whitespace]
 
     def select(self, **kwargs):
         # TODO: Implement selecting rows, possibly by some index
         desired_cols = kwargs['columns']
         rows = self.rows()
         return map(lambda row: { key: row[key] for key in desired_cols }, rows)
+
+    def to_csv(self):
+        csv_str = ",".join(self.columns()) + "\n"
+        csv_str += "\n".join(map(lambda row: ",".join(row.viewvalues()), self.rows()))
+        return csv_str
         
 
 
