@@ -20,5 +20,10 @@ class Julienne:
         return [dict(zip(self.columns(), row)) for row in rows_sans_whitespace]
 
     def select(self, **kwargs):
-        pass
+        # TODO: Implement selecting rows, possibly by some index
+        desired_cols = kwargs['columns']
+        rows = self.rows()
+        return map(lambda row: { key: row[key] for key in desired_cols }, rows)
+        
+
 

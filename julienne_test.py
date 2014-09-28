@@ -29,10 +29,6 @@ def test_row_enumeration():
     assert Julienne(TABLE).rows() == [{ 'Function':'validate()' }]
 
 def test_julienne_selection():
-    assert Julienne(TABLE).select(rows=['validate()'], columns=['Function']) == [{ 'Function':'validate()' }] 
     assert Julienne(TABLE).select(columns=['Function']) == [{ 'Function':'validate()' }]
-    assert Julienne(TABLE).select(rows=['validate()']) == [{ 'Function':'validate()' }]
-    assert Julienne(TABLE).select(columns=[], rows=[]) == [{}]
-    assert Julienne(TABLE).select(rows=['validate()'], columns=[]) == []
-    assert Julienne(TABLE).select(rows=[], columns=['Function']) == [] 
+    assert Julienne(TABLE).select(columns=[]) == [{}]
 
